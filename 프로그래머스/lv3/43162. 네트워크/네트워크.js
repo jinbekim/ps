@@ -8,18 +8,15 @@ function solution(n, computers) {
     for (let i = 0; i < n ; ++i) {
         if (computers[i][i] === VISIT)  continue;
         
-        
-        dfs(computers[i]);
-        function dfs(arr) {
+        const bfs = [i];
+        while (bfs.length) {
+            const id = bfs.pop();
             for (let j =0 ; j <n ; ++j) {
-                if (arr[j] !== CONNECT) continue;
-                arr[j] = VISIT;
-                dfs(computers[j]);
+                if (computers[id][j] !== CONNECT) continue;
+                computers[id][j] = VISIT;
+                bfs.push(j);
             }
-
         }
-        
-        
         answer += 1;
     }
     return answer;
