@@ -1,22 +1,26 @@
 /// find networks
 function solution(n, computers) { 
 
-    let answer = 2;
+    let answer = 0;
+    const VISIT = 2;
+    const CONNECT = 1;
     
     for (let i = 0; i < n ; ++i) {
-        if (computers[i][i] !== 0 && computers[i][i] !== 1)  continue;
+        if (computers[i][i] === VISIT)  continue;
         
-        const loop = [i];
-        while(loop.length) {
-            const num = loop.pop();
-            if (computers[num][num] === answer) continue;
-            computers[num].forEach((v,id) => {
-                if (v === 0) return false;
-                computers[num][id] = answer;
-                loop.push(id);
-            });
+        
+        dfs(computers[i]);
+        function dfs(arr) {
+            for (let j =0 ; j <n ; ++j) {
+                if (arr[j] !== CONNECT) continue;
+                arr[j] = VISIT;
+                dfs(computers[j]);
+            }
+
         }
+        
+        
         answer += 1;
     }
-    return answer - 2;
+    return answer;
 }
