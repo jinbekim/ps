@@ -1,28 +1,3 @@
-
-// const playsRecord =  {
-    /**
-    [genre] : number; // playTimes
-    e.g.
-    [classic] : 2000 plays
-    [pop] : 1000 plays
-    */
-// }
-
-// const songsOfEachGenre = {
-    /**
-        [genre] : array[]song;
-    */
-// }
-
-// const song = {
-    /**
-    id : number;
-    plays: number;
-    genre: 'classic';
-    genreTotal: record[this.genre];
-    */
-// }
-
 const playRecord = {};
 const songsOfEachGenre = {};
 
